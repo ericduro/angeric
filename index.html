@@ -12,6 +12,7 @@
             overflow: hidden;
             position: relative;
             height: 100vh;
+            width: 100vw;
         }
         h1 {
             margin-top: 50px;
@@ -56,7 +57,7 @@
         <button id="noButton" onmouseover="moveButton()">No 🙃</button>
     </div>
     <div id="imageContainer">
-        <p>Sabia que dirias que sí! 💖</p>
+        <p>Sabía que dirías que sí! 💖</p>
     </div>
     
     <script>
@@ -66,6 +67,11 @@
             let maxY = window.innerHeight - button.clientHeight - 20;
             let x = Math.random() * maxX;
             let y = Math.random() * maxY;
+            
+            // Asegurar que el botón se mantenga dentro de la pantalla
+            x = Math.max(10, Math.min(x, maxX));
+            y = Math.max(10, Math.min(y, maxY));
+            
             button.style.left = `${x}px`;
             button.style.top = `${y}px`;
         }
